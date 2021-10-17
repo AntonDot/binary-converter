@@ -1,9 +1,14 @@
 import java.io.*;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        String a = "-128000";
+        Scanner sc = new Scanner(System.in);
+
+        String a = sc.next();
+        if(a.contains(","))a = a.replace(',','.');
         System.out.println(a);
 
             if(!(a.contains("\\.")))a+=".0";
