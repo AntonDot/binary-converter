@@ -10,7 +10,7 @@ public class Main {
             String firstPart ="";
             if(!a.contains("-")){//дробное число, не включающее минус
 
-
+                //github?
 
                 String d[] = a.split("\\.");
                 String integerPart = d[0];
