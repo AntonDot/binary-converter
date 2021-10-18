@@ -7,17 +7,17 @@ public class Main {
 	// write your code here
         Scanner sc = new Scanner(System.in);
 
-        String a = sc.next();
-        if(a.contains(","))a = a.replace(',','.');
-        System.out.println(a);
+        String sourceText = sc.next();
+        if(sourceText.contains(","))sourceText = sourceText.replace(',','.');
+        System.out.println(sourceText);
 
-            if(!(a.contains("\\.")))a+=".0";
+            if(!(sourceText.contains("\\.")))sourceText+=".0";
             String firstPart ="";
-            if(!a.contains("-")){//дробное число, не включающее минус
+            if(!sourceText.contains("-")){//дробное число, не включающее минус
 
                 //github?
 
-                String d[] = a.split("\\.");
+                String d[] = sourceText.split("\\.");
                 String integerPart = d[0];
                 String floatPart = d[1];
 
@@ -56,7 +56,7 @@ public class Main {
                 System.out.println("Double 0 "+ poriadokOfDouble + " " + aInBinary.substring(0,52) );
             }
             else {//дробное число, включающее минус
-                String d[] = a.split("\\.");
+                String d[] = sourceText.split("\\.");
                 String integerPart = d[0].substring(1);
                 String floatPart = d[1];
 
@@ -94,94 +94,32 @@ public class Main {
                 System.out.println("Float: 1 "+ poriadokOfFloat + " " + aInBinary.substring(0,23));
                 System.out.println("Double 1 "+ poriadokOfDouble + " " + aInBinary.substring(0,52) );
             }
-
-
-
-
-            /*if(!a.contains("-")) {
-                String d[] = a.split("\\.");
-                String integerPart = d[0];
-                String floatPart = d[1];
-                String binaryIntegerPart = positiveToBinary(Long.parseLong(integerPart));
-                floatPart = "0."+floatPart;
-                String binaryFloatPart = "";
-                float floatPartinteger = Float.parseFloat(floatPart);
-                for(;;){
-                    if(floatPartinteger==0)break;
-                    floatPartinteger*=2;
-                    binaryFloatPart+=Float.toString(floatPartinteger).charAt(0);
-                    if (Float.toString(floatPartinteger).charAt(0)=='1'){
-                        floatPartinteger--;
-                    }
-                }
-                //float out
-                int poriadok = binaryIntegerPart.length()-1;
-                String fierstPart = "0";
-                String secondPart = positiveToBinaryFloat(poriadok, 1);
-                String thirdPart = (binaryIntegerPart+binaryFloatPart).substring(1);
-                System.out.println(thirdPart);
-                //thirdPart = thirdPart.substring(0,23);
-                System.out.println(fierstPart+" "+secondPart+" "+thirdPart.substring(0,23) + new String(new char[23 - thirdPart.substring(0,23).length()]).replace("\0", "0"));
-                secondPart = positiveToBinaryFloat(poriadok, 0);
-
-                if(thirdPart.length() > 52)thirdPart = thirdPart.substring(0,52);
-                System.out.println(fierstPart+" "+secondPart+" "+thirdPart + new String(new char[52 - thirdPart.length()]).replace("\0", "0"));
-            }
-            else{
-                String d[] = a.split("\\.");
-                String integerPart = d[0];
-                String floatPart = d[1];
-                String binaryIntegerPart = negativeToBinary(integerPart);
-                floatPart = "0."+floatPart;
-                String binaryFloatPart = "";
-                float floatPartinteger = Float.parseFloat(floatPart);
-                for(;;){
-                    if(floatPartinteger==0)break;
-                    floatPartinteger*=2;
-                    binaryFloatPart+=Float.toString(floatPartinteger).charAt(0);
-                    if (Float.toString(floatPartinteger).charAt(0)=='1'){
-                        floatPartinteger--;
-                    }
-                }
-                //float out
-                int poriadok = binaryIntegerPart.length()-1;
-                String fierstPart = "1";
-                String secondPart = negativeToBinaryFloat(Long.toString(poriadok), 1);
-                String thirdPart = (binaryIntegerPart+binaryFloatPart).substring(1);
-                System.out.println(thirdPart);
-                //thirdPart = thirdPart.substring(0,23);
-                System.out.println(fierstPart+" "+secondPart+" "+thirdPart.substring(0,23) + new String(new char[23 - thirdPart.substring(0,23).length()]).replace("\0", "0"));
-                secondPart = negativeToBinaryFloat(Long.toString(poriadok), 0);
-                thirdPart = thirdPart.substring(0,52);
-                System.out.println(fierstPart+" "+secondPart+" "+thirdPart + new String(new char[52 - thirdPart.length()]).replace("\0", "0"));*/
-            //}
-        if(!(a.split("\\.")[1].replace("0","")=="")){
+            
+        if(!(sourceText.split("\\.")[1].replace("0","")=="")){
         }
         else {
             long i;
             double f;
-            a = a.split("\\.")[0];
-                i = Long.parseLong(a);
+            sourceText = sourceText.split("\\.")[0];
+                i = Long.parseLong(sourceText);
                 long i1 = i;
-                if (!a.contains("-")) {
+                if (!sourceText.contains("-")) {
                     String c = positiveToBinary(i);
 
                     positiveOutInteger(i1,c);
 
                 } else {
-                    StringBuilder sb = new StringBuilder(a);
+                    StringBuilder sb = new StringBuilder(sourceText);
                     sb.delete(0, 1);
-                    a = sb.toString();
-                    i = Long.parseLong(a);
+                    sourceText = sb.toString();
+                    i = Long.parseLong(sourceText);
 
                     String d = "";
                     for (; i >= 2; ) {
                         d += i % 2;
                         i /= 2;
                     }
-                    ////
 
-                    ////
                     String c;
                     //переворот строки
                     c = revolution(d);
@@ -270,7 +208,7 @@ public class Main {
         //переворот строки
         c = revolution(d);
         c = "1" + c;
-        //System.out.println(c);
+
         return c;
     }
 
@@ -318,9 +256,7 @@ public class Main {
             d += i % 2;
             i /= 2;
         }
-        ////
 
-        ////
         String c;
         //переворот строки
         c = revolution(d);
@@ -358,11 +294,11 @@ public class Main {
 
     public static String PositiveFloatBinary(String floatPart) {
 
-        //System.out.println(floatPart);
+
         String binaryFloatPart = "";
          long floatPartinteger =Long.parseLong(floatPart);
          long lenght = (long) Math.pow(10, floatPart.length());
-        //System.out.println(floatPartinteger);
+
         for (int i = 0; ; i++) {
             if (floatPartinteger == 0) break;
             System.out.println(floatPartinteger);
@@ -377,7 +313,7 @@ public class Main {
                 binaryFloatPart += ((floatPartinteger*1.0/lenght+"").charAt(0));floatPartinteger-=lenght;}
 
 
-            //System.out.println(binaryFloatPart);
+
         }
         return binaryFloatPart;
     }
@@ -389,7 +325,7 @@ public class Main {
         String binaryFloatPart = "";
         long floatPartinteger =Long.parseLong(floatPart);
         long lenght = (long) Math.pow(10, floatPart.length());
-        //System.out.println(floatPartinteger);
+
         for (int i = 0; ; i++) {
             if (floatPartinteger == 0) break;
             System.out.println(floatPartinteger);
@@ -404,7 +340,7 @@ public class Main {
                 binaryFloatPart += ((floatPartinteger*1.0/lenght+"").charAt(0));floatPartinteger-=lenght;}
 
 
-            //System.out.println(binaryFloatPart);
+
         }
         String c;
         //переворот строки
