@@ -24,7 +24,7 @@ public class Main {
                 String binaryIntegerPart = positiveToBinary(Long.parseLong(integerPart));
                 String binaryFloatPart = PositiveFloatBinary(floatPart);
                 String sourceTextInBinary = binaryIntegerPart+"."+ binaryFloatPart;
-                System.out.println(sourceTextInBinary);
+                //System.out.println(sourceTextInBinary);
                 int positionOftochka=-2;
                 int positionOfEdinica=-2;
                 for (int i = 0;;i++){
@@ -74,7 +74,7 @@ public class Main {
                     if(positionOftochka!=-2&&positionOfEdinica!=-2)break;
 
                 }
-                //System.out.println(aInBinary);
+
                 int ur=0;
                 if(positionOftochka-positionOfEdinica>=0){ur = -1;}
 
@@ -83,7 +83,7 @@ public class Main {
 
                 String poriadokOfFloat = new String(new char[8 - positiveToBinary(127+sdvig).length()]).replace("\0", "0") +positiveToBinary(127+sdvig);
                 String poriadokOfDouble = new String(new char[11 - positiveToBinary(1023+sdvig).length()]).replace("\0", "0")+positiveToBinary(1023+sdvig);
-                //System.out.println(sdvig);
+               
                 aInBinary = binaryIntegerPart+ binaryFloatPart;
                 for(int i = 0; ;i++){
 
