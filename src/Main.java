@@ -62,15 +62,15 @@ public class Main {
 
                 String binaryIntegerPart = positiveToBinary(Long.parseLong(integerPart));
                 String binaryFloatPart = PositiveFloatBinary(floatPart);
-                String aInBinary = binaryIntegerPart+"."+ binaryFloatPart;
-                System.out.println(aInBinary);
+                String sourceTextInBinary = binaryIntegerPart+"."+ binaryFloatPart;
+                System.out.println(sourceTextInBinary);
                 int positionOftochka=-2;
                 int positionOfEdinica=-2;
                 for (int i = 0;;i++){
-                    if(aInBinary.charAt(i) == '0') {}
-                    if(aInBinary.charAt(i) == '1'){if(positionOfEdinica==-2){positionOfEdinica=i;
+                    if(sourceTextInBinary.charAt(i) == '0') {}
+                    if(sourceTextInBinary.charAt(i) == '1'){if(positionOfEdinica==-2){positionOfEdinica=i;
                     }}
-                    if(aInBinary.charAt(i) == '.'){if(positionOftochka==-2){positionOftochka=i;}}
+                    if(sourceTextInBinary.charAt(i) == '.'){if(positionOftochka==-2){positionOftochka=i;}}
                     if(positionOftochka!=-2&&positionOfEdinica!=-2)break;
 
                 }
@@ -83,16 +83,16 @@ public class Main {
 
                 String poriadokOfFloat = new String(new char[8 - positiveToBinary(127+sdvig).length()]).replace("\0", "0") +positiveToBinary(127+sdvig);
                 String poriadokOfDouble = new String(new char[11 - positiveToBinary(1023+sdvig).length()]).replace("\0", "0")+positiveToBinary(1023+sdvig);
-               
-                aInBinary = binaryIntegerPart+ binaryFloatPart;
+
+                sourceTextInBinary = binaryIntegerPart+ binaryFloatPart;
                 for(int i = 0; ;i++){
 
-                    if(aInBinary.charAt(i)==0)aInBinary=aInBinary.substring(1);
-                    else { aInBinary=aInBinary.substring(1); break;}
+                    if(sourceTextInBinary.charAt(i)==0)sourceTextInBinary=sourceTextInBinary.substring(1);
+                    else { sourceTextInBinary=sourceTextInBinary.substring(1); break;}
                 }
-                aInBinary+=new String(new char[53]).replace("\0", "0");
-                System.out.println("Float: 1 "+ poriadokOfFloat + " " + aInBinary.substring(0,23));
-                System.out.println("Double 1 "+ poriadokOfDouble + " " + aInBinary.substring(0,52) );
+                sourceTextInBinary+=new String(new char[53]).replace("\0", "0");
+                System.out.println("Float: 1 "+ poriadokOfFloat + " " + sourceTextInBinary.substring(0,23));
+                System.out.println("Double 1 "+ poriadokOfDouble + " " + sourceTextInBinary.substring(0,52) );
             }
 
         if(!(sourceText.split("\\.")[1].replace("0","")=="")){
