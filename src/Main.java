@@ -35,7 +35,7 @@ public class Main {
                     if(positionOftochka!=-2&&positionOfEdinica!=-2)break;
 
                 }
-
+                System.out.println(sourceTextInBinary);
                 int ur=0;
                 if(positionOftochka-positionOfEdinica>=0){ur = -1;}
 
