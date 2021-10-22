@@ -9,7 +9,7 @@ public class Main {
 
         String sourceText = sc.next();
         if(sourceText.contains(","))sourceText = sourceText.replace(',','.');
-        System.out.println(sourceText);
+        //System.out.println(sourceText);
 
             if(!(sourceText.contains("\\.")))sourceText+=".0";
             String firstPart ="";
@@ -35,12 +35,12 @@ public class Main {
                     if(positionOftochka!=-2&&positionOfEdinica!=-2)break;
 
                 }
-                System.out.println(sourceTextInBinary);
+                //System.out.println(sourceTextInBinary);
                 int ur=0;
                 if(positionOftochka-positionOfEdinica>=0){ur = -1;}
 
                 int sdvig = positionOftochka-positionOfEdinica+ur;
-                System.out.println(127+sdvig);
+                //System.out.println(127+sdvig);
 
                 String poriadokOfFloat = new String(new char[8 - positiveToBinary(127+sdvig).length()]).replace("\0", "0") +positiveToBinary(127+sdvig);
                 String poriadokOfDouble = new String(new char[11 - positiveToBinary(1023+sdvig).length()]).replace("\0", "0")+positiveToBinary(1023+sdvig);
